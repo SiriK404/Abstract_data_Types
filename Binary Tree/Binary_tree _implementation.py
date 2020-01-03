@@ -1,3 +1,9 @@
+# Binary Tree with Insert and Find operations
+
+
+
+
+
 class Node :
 
     def __init__(self,val):
@@ -134,5 +140,5 @@ def main():
 
 
 
-
-main()
+if __name__ == "__main__":
+    main()
