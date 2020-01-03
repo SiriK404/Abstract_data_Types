@@ -66,9 +66,12 @@ class Node :
 #Depth First Traversal
 
 
-#Preorder function starts from root and goes down till last node and prints values
+#Preorder function starts from root and goes down to left first then right till last node and prints values
 
-#postorder function starts from last node and traverses upward.
+#postorder function starts from last node on left side and traverses upward.
+
+
+#inorder function starts from left side reaches root then traveres right side
     def preorder(self):
 
 
@@ -101,8 +104,19 @@ class Node :
 
             print(str(self.val))
 
+    def inorder(self):
 
+        if self.left:
 
+            self.left.inorder()
+
+        if self.val:
+
+            print(str(self.val))
+
+        if self.right:
+
+            self.right.inorder()
 class Tree :
 
 
@@ -149,18 +163,21 @@ class Tree :
             self.root.preorder()
             print("this is depth first postorder traversal of the tree:")
             self.root.postorder()
+            print("this is depth first inorder traversal of the tree:")
+            self.root.inorder()
+
 
         else:
             return False
 
 
-    #  10
-    # / \
-    #2   12
-    # \
-    #  5
-    #   \
-    #    6
+    #       10
+    #      / \
+    #     2   12
+    #    / \
+    #   1   3
+    #        \
+    #         5
 def main():
 
     test=Tree()
@@ -170,7 +187,9 @@ def main():
     print(test.insert(12))
     print(test.insert(2))
     print(test.insert(5))
-    print(test.insert(6))
+    print(test.insert(3))
+    print(test.insert(1))
+
 
     print(test.find(15))
     print(test.find(10))
